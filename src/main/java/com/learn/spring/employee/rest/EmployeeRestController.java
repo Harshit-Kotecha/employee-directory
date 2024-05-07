@@ -29,7 +29,7 @@ public class EmployeeRestController {
         return employeeService.findAll();
     }
 
-    @GetMapping("/employee/{employeeId}")
+    @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable(name = "employeeId") int id) {
         Employee employee = employeeService.findById(id);
 
@@ -40,7 +40,7 @@ public class EmployeeRestController {
         return employee;
     }
 
-    @PostMapping("/employee")
+    @PostMapping("/employees")
     public Employee add(@RequestBody Employee employee) {
         if(employee == null) {
             throw new RuntimeException("Null data received");
@@ -50,7 +50,7 @@ public class EmployeeRestController {
         return employeeService.save(employee);
     }
 
-    @PutMapping("/employee")
+    @PutMapping("/employees")
     public Employee update(@RequestBody Employee employee) {
         if(employee == null) {
             throw new RuntimeException("Null data received");
@@ -59,7 +59,7 @@ public class EmployeeRestController {
         return employeeService.save(employee);
     }
 
-    @DeleteMapping("/employee/{id}")
+    @DeleteMapping("/employees/{id}")
     public String deleteById(@PathVariable int id) {
         Employee employee  = employeeService.findById(id);
 
